@@ -1,0 +1,15 @@
+.city-card-container {
+    margin: auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.city-cards-heading {
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+}
