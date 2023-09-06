@@ -15,13 +15,13 @@ function Homepage() {
         axios.get(`https://unilife-server.herokuapp.com/cities`)
             .then(res => {
                 console.log(res.data.response)
-                setCities(res.data.response)
+                setCities(res.data.response.slice(0, 9))
             })
             .catch(err => console.log(err))
     }, [])
 
     return (
-        <>
+        <div className='homepage-container'>
             <Slider />
             <CitySearch cities={cities} />
             <h2 className='city-cards-heading'>Student accommodations in our top cities</h2>
@@ -32,7 +32,28 @@ function Homepage() {
                     })
                 }
             </div>
-        </>
+            <button className='see-all-cities-btn'>See All Cities</button>
+            <div className='compare-container'>
+                <h3>Compare all inclusive student homes.</h3>
+                <div className='comparisons'>
+                    <div className='compare'>
+                        <img src="../../Assets/earthSearch.png" alt="" />
+                        <h4>Search</h4>
+                        <p>Find your dream home in the perfect area near your university.</p>
+                    </div>
+                    <div className='compare'>
+                        <img src="../../Assets/tickCross.png" alt="" />
+                        <h4>Compare</h4>
+                        <p>Compare student accommodation to find the right home for you.</p>
+                    </div>
+                    <div className='compare'>
+                        <img src="../../Assets/paper.png" alt="" />
+                        <h4>Bills Included</h4>
+                        <p>Bills are included in all rent prices. No hidden fees.</p>
+                    </div>
+                </div>
+            </div>     
+        </div>
     )
 }
 
