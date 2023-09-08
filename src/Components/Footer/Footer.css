@@ -58,3 +58,14 @@
     align-items: center;
     gap: 10px;
 }
+
+.email-form {
+    position: relative;
+}
+
+.email-input-label {
+    font-size: 0.75rem;
+    position: absolute;
+    left: 0;
+    top: 45px;
+}

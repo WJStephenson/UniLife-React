@@ -1,12 +1,12 @@
 import React from 'react'
 import './Slider.css'
 
-function Slider() {
+function Slider({title, message}) {
     return (
         <div className='slider-container'>
             <div className='slider-text'>
-                <h1>Find student homes with bills included</h1>
-                <p>A simple and faster way to search for student accommodation</p>
+                <h1>{title}</h1>
+                <p>{message}</p>
             </div>
         </div>
     )

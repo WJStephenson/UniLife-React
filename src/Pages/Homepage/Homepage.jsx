@@ -4,8 +4,12 @@ import Slider from '../../Components/Slider/Slider'
 import CitySearch from '../../Components/CitySearch/CitySearch'
 import axios from 'axios';
 import CityCard from '../../Components/CityCard/CityCard';
+import { Link } from 'react-router-dom';
 
 function Homepage() {
+
+    const title = 'Find student homes with bills included'
+    const message = 'A simple and faster way to search for student accommodation'
 
     //store api response in state
     const [cities, setCities] = useState([]);
@@ -15,14 +19,14 @@ function Homepage() {
         axios.get(`https://unilife-server.herokuapp.com/cities`)
             .then(res => {
                 console.log(res.data.response)
-                setCities(res.data.response.slice(0, 9))
+                setCities(res.data.response)
             })
             .catch(err => console.log(err))
     }, [])
 
     return (
         <div className='homepage-container'>
-            <Slider />
+            <Slider title={title} message={message} />
             <CitySearch cities={cities} />
             <h2 className='city-cards-heading'>Student accommodations in our top cities</h2>
             <div className='city-card-container'>
@@ -32,7 +36,7 @@ function Homepage() {
                     })
                 }
             </div>
-            <button className='see-all-cities-btn'>See All Cities</button>
+            <Link to={'/cities'}><button className='see-all-cities-btn'>See All Cities</button></Link>
             <div className='compare-container'>
                 <h3>Compare all inclusive student homes.</h3>
                 <div className='comparisons'>
