@@ -67,9 +67,9 @@ function CityDetails() {
             <div className='city-details-container'>
                 <div className="property-filter">
                     <div className="filter-area">
-                        <label htmlFor="bedroom">Min Bedroom</label>
+                        <label htmlFor="bedroom" className='filter-label'>Min Bedroom</label>
                         <select name="bedroom_count" id="bedroom" onInput={updateFilter}>
-                            <option value="">Any</option>
+                            <option value="">Any bedroom</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -82,18 +82,18 @@ function CityDetails() {
                         </select>
                     </div>
                     <div className="filter-area">
-                        <label htmlFor="bathrooom">Min Bathroom</label>
+                        <label htmlFor="bathrooom" className='filter-label'>Min Bathroom</label>
                         <select name="bathroom_count" id="bathroom" onInput={updateFilter}>
-                            <option value="">Any</option>
+                            <option value="">Any bathroom</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                     </div>
                     <div className="filter-area">
-                        <label htmlFor="price">Max Price</label>
+                        <label htmlFor="price" className='filter-label'>Max Price</label>
                         <select name="rent" id="price" onInput={updateFilter}>
-                            <option value="">Any</option>
+                            <option value="">Any price</option>
                             <option value="1000">1000</option>
                             <option value="1500">1500</option>
                             <option value="2000">2000</option>
@@ -102,9 +102,9 @@ function CityDetails() {
                         </select>
                     </div>
                     <div className="filter-area">
-                        <label htmlFor="home">Home Type</label>
+                        <label htmlFor="home" className='filter-label'>Home Type</label>
                         <select name="property_type" id="home" onInput={updateFilter}>
-                            <option value="">Any</option>
+                            <option value="">Any type</option>
                             {
                                 propertyTypes?.map((type, index) => {
                                     return <option key={index} value={type.name}>{type.name}</option>

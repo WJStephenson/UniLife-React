@@ -34,6 +34,7 @@ function PropertyDetails() {
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             borderRadius: '12px',
+            maxWidth: '90vw',
         },
         overlay: {
             backgroundColor: 'rgba(0,0,0,0.5)'
@@ -78,7 +79,7 @@ function PropertyDetails() {
                         }
                     </div>
                 </div>
-                <div>
+                <div className='property-information-container'>
                     <div className='property-information property-wrapper'>
                         {property.address !== undefined && <h3>{property.address.street}, {property.address.city}, {property.address.postcode}</h3>}
                         <div className="item-flex">
@@ -115,12 +116,12 @@ function PropertyDetails() {
                     <div className='buttons-wrapper'>
                         {
                             onShortlist ?
-                                <button onClick={() => removeProperty(property)}><AiFillHeart style={{ color: 'red' }} /> Shortlist</button>
+                                <button className='shortlist-button' onClick={() => removeProperty(property)}><AiFillHeart style={{ color: 'red' }} /> Shortlist</button>
                                 :
-                                <button onClick={() => addProperty(property)}><AiOutlineHeart /> Shortlist</button>
+                                <button className='shortlist-button' onClick={() => addProperty(property)}><AiOutlineHeart /> Shortlist</button>
                         }
 
-                        <button onClick={() => setIsOpen(true)}>Book Viewing</button>
+                        <button onClick={() => setIsOpen(true)} className='book-viewing-button'>Book Viewing</button>
                     </div>
                 </div>
                 <div className="property-description property-wrapper">

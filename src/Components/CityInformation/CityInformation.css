@@ -11,6 +11,10 @@
     margin-bottom: 60px;
 }
 
+.cityinformation-container img{
+    width: 50%;
+}
+
 .information-text {
     display: flex;
     flex-direction: column;
@@ -23,4 +27,20 @@
 
 .information-text h3 {
     font-size: 1.5rem;
+}
+
+
+@media (max-width: 1000px) {
+    .cityinformation-container {
+        flex-direction: column;
+    }
+
+    .cityinformation-container img {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .information-text {
+        text-align: left;
+    }
 }

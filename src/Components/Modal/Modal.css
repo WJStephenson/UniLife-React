@@ -3,15 +3,20 @@
     gap: 30px;
 }
 
-.modal-header h2, .modal-header h4, .modal-header .welcome {
+.modal-header h2,
+.modal-header h4,
+.modal-header .welcome {
     margin-bottom: 20px;
 }
 
-.booking-form input, .booking-form textarea, .booking-form select {
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
     padding: 10px;
     border: 1px solid #CED3D8;
     border-radius: 12px;
-    width: 280px;
+    max-width: 100%;
+    width: 300px;
     margin-bottom: 10px;
 
     resize: none;
@@ -35,7 +40,8 @@
     margin-bottom: 10px;
 }
 
-.form-part-1, .form-part-2 {
+.form-part-1,
+.form-part-2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -56,4 +62,21 @@
 
 ::placeholder {
     color: #CED3D8;
+}
+
+
+
+@media (max-width: 754px) {
+    .booking-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .booking-form
+
+    .form-part-1,
+    .form-part-2 {
+        width: 260px;
+    }
 }

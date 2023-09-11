@@ -29,7 +29,7 @@ function Homepage() {
     return (
         <>
             <Slider title={title} message={message} />
-            <div className='homepage-container'>
+            <div className='homepage-container' id='top'>
                 <CitySearch cities={cities} />
                 <h2 className='city-cards-heading'>Student accommodations in our top cities</h2>
                 <div className='city-card-container'>
@@ -71,7 +71,7 @@ function Homepage() {
                         <p>Shortlist your favourite properties and send enquiries in one click.</p>
                         <img className='section-image' src="../../../public/heart.png" alt="hand icon" />
                     </div>
-                    <button>Search & Compare</button>
+                    <a href='#top'>Search & Compare</a>
                     <img className='man-image' src="../../../public/man.png" alt="student on phone" />
                 </div>
             </div>

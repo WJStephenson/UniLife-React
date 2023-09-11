@@ -125,9 +125,6 @@
     width: 50%;
     padding: 10px;
     border-radius: 10px;
-    background-color: white;
-    border: 1px solid #CED3D8;
-    color: black;
     margin-top: 10px;
     font-weight: 800;
     transition: all 0.2s;
@@ -138,9 +135,17 @@
     gap: 6px;
 }
 
-.buttons-wrapper button:hover {
+.book-viewing-button {
     background-color: #3A5295;
     color: white;
+    border: none;
+}
+
+.shortlist-button {
+    color: black;
+    background-color: white;
+    
+    border: 1px solid #CED3D8;
 }
 
 .bedroom-prices-container {
@@ -171,3 +176,39 @@
     text-decoration: underline;
 }
 
+
+
+@media (max-width: 1000px) {
+    .property-details-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .property-wrapper {
+        height: auto;
+    }
+
+    .property-information {
+        height: 340px;
+    }
+}
+
+@media (max-width: 500px) {
+    .property-item p {
+        font-size: 0.8rem;
+        padding: 0px 6px;
+    }
+
+    .property-item {
+        font-size: 1.3rem;
+    }
+
+    .item-label {
+        text-wrap: wrap;
+        text-align: center;
+    }
+
+    .property-details-container {
+        width: 90vw
+    }
+}

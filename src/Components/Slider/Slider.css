@@ -1,6 +1,6 @@
 .slider-container {
     width: 100%;
-    height: 210px;
+    height: 250px;
     
     background-image: url('/public/cover-img.svg');
     background-repeat: no-repeat;
@@ -16,7 +16,6 @@
     flex-direction: column;
     gap: 20px;
     padding: 50px;
-    /* max-width: 50%; */
     width: 100%;
     height: 100%;
     padding-top: 10px;
@@ -28,4 +27,10 @@
 
 .slider-container p {
     font-size: 0.8rem;
+}
+
+@media  (max-width: 600px) {
+    .slider-text h1 {
+        font-size: 1.3rem;
+    }
 }
