@@ -1,3 +1,5 @@
+//landing page with cards for each city as well as a seach dropdown
+
 import React, { useEffect, useState } from 'react'
 import './Homepage.css'
 import Slider from '../../Components/Slider/Slider'
@@ -8,11 +10,11 @@ import { Link } from 'react-router-dom';
 
 function Homepage() {
 
+    //information to pass to slider component
     const title = 'Find student homes with bills included'
     const message = 'A simple and faster way to search for student accommodation'
 
-    //store api response in state
-    const [cities, setCities] = useState([]);
+    const [cities, setCities] = useState([]);  //store api response in state
 
     //get city list from api when page loads
     useEffect(() => {
@@ -33,7 +35,7 @@ function Homepage() {
                 <div className='city-card-container'>
                     {
                         cities?.map((city) => {
-                            return <CityCard key={city._id} name={city.name} count={city.property_count} imageURL={city.image_url} />
+                            return <CityCard key={city._id} name={city.name} count={city.property_count} imageURL={city.image_url} cityId={city._id}/>
                         })
                     }
                 </div>

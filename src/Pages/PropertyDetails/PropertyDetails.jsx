@@ -1,29 +1,30 @@
+//page to show details of selected property
+
 import React, { useContext, useEffect, useState } from 'react'
 import './PropertyDetails.css'
 import { useParams } from 'react-router'
 import axios from 'axios'
 import { BiBed, BiBath } from "react-icons/bi";
 import { TiTick } from "react-icons/ti";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import '../../Components/Modal/Modal.css'
 import { ShortlistContext } from '../../Context/ShortlistContext';
-import { v4 as uuidv4 } from 'uuid'; // Import the UUID generator
 
 
 function PropertyDetails() {
 
-    const { propertyid } = useParams()
-    const [property, setProperty] = useState({})
-    const [selectedImage, setSelectedImage] = useState([])
-    const [allImages, setAllImages] = useState([])
-    const [keyFeatures, setKeyFeatures] = useState([])
-    const [bedroomPrices, setBedroomPrices] = useState({})
-    const [isOpen, setIsOpen] = useState(false)
-    const { addProperty, removeProperty, shortlist } = useContext(ShortlistContext)
-    const [onShortlist, setOnShortlist] = useState(false)
-    const objectEntries = Object.entries(bedroomPrices)
+    const { propertyid } = useParams() //get propert id from url
+    const [property, setProperty] = useState({}) //store the selected property opbject in state
+    const [selectedImage, setSelectedImage] = useState([]) //store the currently selected image to be show
+    const [allImages, setAllImages] = useState([]) //store an array of all images
+    const [keyFeatures, setKeyFeatures] = useState([]) //store array of all key features
+    const [bedroomPrices, setBedroomPrices] = useState({}) //sore an array of all bedroom prices to be shown
+    const [isOpen, setIsOpen] = useState(false) //state fro if modal is currently being shown
+    const { addProperty, removeProperty, shortlist } = useContext(ShortlistContext) //retrieve global state and functions from contaxt
+    const [onShortlist, setOnShortlist] = useState(false) //store if property is in shortlist to update heart icon
+    const objectEntries = Object.entries(bedroomPrices) //store the bedroom price object as variable to map through
     const customStyles = {
         content: {
             top: '50%',
@@ -37,8 +38,9 @@ function PropertyDetails() {
         overlay: {
             backgroundColor: 'rgba(0,0,0,0.5)'
         }
-    };
+    }; //styles for modal
 
+    // get property information from api when page loads
     useEffect(() => {
         axios.get(`https://unilife-server.herokuapp.com/properties/${propertyid}`)
             .then(res => {
@@ -51,10 +53,13 @@ function PropertyDetails() {
             .catch(err => console.log(err))
     }, [])
 
+
+    //update if property is in the shortlist when shortlist is updated or property state is changed
     useEffect(() => {
         setOnShortlist(shortlist?.find(item => item._id == property._id))
     }, [shortlist, property])
 
+    //update state of selected image to be shown
     function handleImageSelection(e) {
         setSelectedImage(e.target.src)
     }
@@ -125,6 +130,7 @@ function PropertyDetails() {
                 <div className="property-bedroom-prices property-wrapper">
                     <h3>Bedroom Prices</h3>
                     <div className='bedroom-prices-container'>
+                        {/* map through the bedroom prices object to get all prices to be shown per room */}
                         {
                             objectEntries.map(([bedroom, price], index) => (
                                 <React.Fragment key={bedroom}> {/* Generate a unique key using UUID */}
@@ -160,7 +166,7 @@ function PropertyDetails() {
                 <div className='modal-header'>
                     <h2>Book a Viewing</h2>
                     {property.address !== undefined && <h4>{property.address.street}, {property.address.city}, {property.address.postcode}</h4>}
-                    <button className='modal-close-btn' onClick={() => setIsOpen(false)}>X</button>
+                    <button className='modal-close-btn' onClick={() => setIsOpen(false)}><AiOutlineClose /></button>
                 </div>
                 <form className='booking-form'>
                     <div className='form-part-1'>

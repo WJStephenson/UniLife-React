@@ -1,9 +1,9 @@
+//city information card to display city name and paragraph information from api
+
 import React from 'react'
 import './CityInformation.css'
 
 function CityInformation({ city }) {
-
-    console.log(city)
 
     return (
         <div className='cityinformation-container'>
@@ -12,7 +12,7 @@ function CityInformation({ city }) {
                 <p>{city?.student_life}</p>
                 <p>{city?.universities}</p>
             </div>
-            <img src="../../../public/students.png" alt="Happy Students" />
+            <img src="/public/students.png" alt="Happy Students" />
         </div>
     )
 }

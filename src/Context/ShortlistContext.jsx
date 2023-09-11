@@ -1,3 +1,4 @@
+//context to store and add/remove properties from the shortlist
 import { useState, createContext, useEffect } from "react";
 
 //create context

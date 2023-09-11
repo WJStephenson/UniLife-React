@@ -1,16 +1,18 @@
+//header component with links to the homepage, shortlist and a modal for contacting us
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
-import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineMail, AiOutlineClose } from "react-icons/ai";
 import Modal from 'react-modal'
 import '../../Components/Modal/Modal.css'
 
 function Header() {
 
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false) //state for is the modal open or not
 
-  const customStyles = {
+  const customStyles = { //styles for the mnodal
     content: {
       top: '50%',
       left: '50%',
@@ -28,7 +30,7 @@ function Header() {
 
   return (
     <>
-      <nav className='header-container'>
+      <nav className='header-container' id='header'>
         <div className='header-home'>
           <Link to={'/'}><img src='../../../public/unilife-logo.png' alt='unilife logo' />UniLife</Link>
         </div>
@@ -37,6 +39,7 @@ function Header() {
           <Link to={'#'} onClick={() => setIsOpen(true)}><AiOutlineMail />Contact Us</Link>
         </div>
       </nav>
+
       <Modal
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
@@ -49,7 +52,7 @@ function Header() {
             <p>Feel free to contact us if you have any questions.</p>
             <p>Looking forward to hearing from you.</p>
           </div>
-          <button className='modal-close-btn' onClick={() => setIsOpen(false)}>X</button>
+          <button className='modal-close-btn' onClick={() => setIsOpen(false)}><AiOutlineClose /></button>
         </div>
         <form className='booking-form'>
           <div className='form-part-1'>
@@ -60,7 +63,9 @@ function Header() {
             <label htmlFor='you'>Are you a...</label>
             <select id='you'>
               <option value="student">Student</option>
-
+              <option value="guardian">Parent/Guardian</option>
+              <option value="agent">Agent</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <div className='form-part-2'>

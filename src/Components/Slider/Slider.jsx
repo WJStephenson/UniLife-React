@@ -1,3 +1,5 @@
+//background image with text passed from parent component/page
+
 import React from 'react'
 import './Slider.css'
 

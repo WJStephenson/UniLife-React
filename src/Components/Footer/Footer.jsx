@@ -1,3 +1,5 @@
+//footer component with option to sign up for email notifications
+
 import { useState } from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom';

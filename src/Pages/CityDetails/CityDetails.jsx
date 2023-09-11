@@ -1,3 +1,5 @@
+//page with option to filter property cards based on the selected city. Description of city below property cards
+
 import React, { useEffect, useState } from 'react'
 import './CityDetails.css'
 import { useParams } from 'react-router'
@@ -8,10 +10,10 @@ import CityInformation from '../../Components/CityInformation/CityInformation'
 
 function CityDetails() {
 
-    const { cityid } = useParams()
-    const [city, setCity] = useState({})
-    const [properties, setProperties] = useState([])
-    const [propertTypes, setPropertyTypes] = useState([])
+    const { cityid } = useParams() //get city id from url
+    const [city, setCity] = useState({}) //store selected city in state
+    const [properties, setProperties] = useState([]) //store all properties available in the city
+    const [propertyTypes, setPropertyTypes] = useState([]) //store propertyTypes in state from url call. used to create property type options
     const [filteredProperties, setFilteredProperties] = useState(
         {
             city_id: cityid,
@@ -20,11 +22,13 @@ function CityDetails() {
             property_type: "",
             rent: ""
         }
-    )
+    ) //state to store current filter selection as an object. passed to api as a POST request
 
+    //info to pass to the slider component
     const title = 'Search Accomodation'
     const message = 'Whatever you’re after, we can help you find the right student accommodation for you.'
 
+    //get the city data and propertyTypes from api when the page loads 
     useEffect(() => {
         axios.get(`https://unilife-server.herokuapp.com/cities/${cityid}`)
             .then(res => {
@@ -39,6 +43,8 @@ function CityDetails() {
             .catch(err => console.log(err))
     }, [])
 
+
+    //update the properties state when the filters are changed
     useEffect(() => {
         axios.post(`https://unilife-server.herokuapp.com/properties/filter`, { query: filteredProperties })
             .then(res => {
@@ -47,6 +53,8 @@ function CityDetails() {
             .catch(err => console.log(err))
     }, [filteredProperties])
 
+
+    //update the filter object state when one of the filters is changed
     function updateFilter(e) {
         const updatedFilter = { ...filteredProperties }
         updatedFilter[e.target.name] = `${e.target.value}`
@@ -98,7 +106,7 @@ function CityDetails() {
                         <select name="property_type" id="home" onInput={updateFilter}>
                             <option value="">Any</option>
                             {
-                                propertTypes?.map((type, index) => {
+                                propertyTypes?.map((type, index) => {
                                     return <option key={index} value={type.name}>{type.name}</option>
                                 })
                             }

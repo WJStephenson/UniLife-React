@@ -1,3 +1,5 @@
+//city name card wrapped in routing link to view properties in that city
+
 import React from 'react'
 import './CityNameCard.css'
 import { Link } from 'react-router-dom'
