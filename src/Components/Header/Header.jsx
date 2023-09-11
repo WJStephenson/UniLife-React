@@ -47,7 +47,7 @@ function Header() {
     <>
       <nav className='header-container' id='header'>
         <div className='header-home'>
-          <Link to={'/'}><img src='../../../public/unilife-logo.png' alt='unilife logo' />UniLife</Link>
+          <Link to={'/'}><img src='/public/unilife-logo.png' alt='unilife logo' />UniLife</Link>
         </div>
         <div className='header-links'>
           <Link to={'/shortlist'}><AiOutlineHeart />Shortlist</Link>

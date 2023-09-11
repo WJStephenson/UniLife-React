@@ -44,17 +44,17 @@ function Homepage() {
                     <h3>Compare all inclusive student homes.</h3>
                     <div className='comparisons'>
                         <div className='compare'>
-                            <img src="../../../public/earthSearch.png" alt="" />
+                            <img src="/public/earthSearch.png" alt="" />
                             <h4>Search</h4>
                             <p>Find your dream home in the perfect area near your university.</p>
                         </div>
                         <div className='compare'>
-                            <img src="../../../public/tickCross.png" alt="" />
+                            <img src="/public/tickCross.png" alt="" />
                             <h4>Compare</h4>
                             <p>Compare student accommodation to find the right home for you.</p>
                         </div>
                         <div className='compare'>
-                            <img src="../../../public/paper.png" alt="" />
+                            <img src="/public/paper.png" alt="" />
                             <h4>Bills Included</h4>
                             <p>Bills are included in all rent prices. No hidden fees.</p>
                         </div>
@@ -64,15 +64,15 @@ function Homepage() {
                     <div className='section-container'>
                         <h3>Best selection</h3>
                         <p>Best selection of student accommodations. Never been easier to find a home that’s right for you.</p>
-                        <img className='section-image' src="../../../public/hand.png" alt="hand icon" />
+                        <img className='section-image' src="/public/hand.png" alt="hand icon" />
                     </div>
                     <div className='section-container'>
                         <h3>Your favorite</h3>
                         <p>Shortlist your favourite properties and send enquiries in one click.</p>
-                        <img className='section-image' src="../../../public/heart.png" alt="hand icon" />
+                        <img className='section-image' src="/public/heart.png" alt="hand icon" />
                     </div>
                     <a href='#top'>Search & Compare</a>
-                    <img className='man-image' src="../../../public/man.png" alt="student on phone" />
+                    <img className='man-image' src="/public/man.png" alt="student on phone" />
                 </div>
             </div>
         </>
