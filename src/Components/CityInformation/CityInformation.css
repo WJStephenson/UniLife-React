@@ -1,0 +1,26 @@
+.cityinformation-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: #F6FAFD;
+    border-radius: 24px;
+    padding: 30px;
+    gap: 60px;
+
+    margin-bottom: 60px;
+}
+
+.information-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.information-text p {
+    font-size: 1.1rem;
+}
+
+.information-text h3 {
+    font-size: 1.5rem;
+}

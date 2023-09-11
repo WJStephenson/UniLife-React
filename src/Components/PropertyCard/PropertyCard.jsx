@@ -1,14 +1,24 @@
 import React from 'react'
 import './PropertyCard.css'
 import { BiBed, BiBath, BiLocationPlus } from "react-icons/bi";
+import { useNavigate } from 'react-router';
 
 function PropertyCard({ property }) {
+
+    const navigate = useNavigate()
+
+    console.log(property)
+
+    function handleClick() {
+        navigate(`/propertydetails/${property._id}`)
+    }
+
   return (
     <div className='property-container'>
         <div className='image-wrapper' style={{backgroundImage:`url('${property.images[0]}')`}}></div>
         <div className='price-and-rooms'>
             <div className='price'>
-                <h3>${property.rent}</h3>
+                <h3>£{property.rent}</h3>
                 <p>pppw including bills</p>
             </div>
             <div className='rooms'>
@@ -21,7 +31,7 @@ function PropertyCard({ property }) {
             <p>{property.furnished}</p>
         </div>
         <p className='location'><BiLocationPlus/>{property.address.street}, {property.address.city}, {property.address.postcode}</p>
-        <button className='view-home-button'>View Home</button>
+        <button className='view-home-button' onClick={handleClick}>View Home</button>
     </div>
   )
 }

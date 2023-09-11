@@ -15,4 +15,18 @@
 .header-container a {
     text-decoration: none;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+    gap: 6px;
+}
+
+.header-home>a {
+    font-size: 1.5rem;
+}
+
+.header-home img {
+    transform: translateY(-3px);
 }

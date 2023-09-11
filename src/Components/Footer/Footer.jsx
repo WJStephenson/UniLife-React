@@ -12,7 +12,6 @@ function Footer() {
   const [emailMessage, setEmailMessage] = useState({ message: '', color: '' }) //state to store message and style when email submitted
 
   const url = 'https://unilife-server.herokuapp.com/subscriptions'; //subscription post endpoint
-  const requestData = { email: emailAddress }; // axios post request
 
 
   //handle email validation and call post email function when form submitted
@@ -33,7 +32,7 @@ function Footer() {
 
   //post email address top endpoint with submitted email address. Set success meassage and color
   function postEmailAddress() {
-    axios.post(url, requestData)
+    axios.post('https://unilife-server.herokuapp.com/subscriptions', { email: emailAddress })
       .then(res => {
         setEmailMessage({ message: 'Done. Thanks for subscribing to our newsletter', color: 'green' })
         console.log(res)

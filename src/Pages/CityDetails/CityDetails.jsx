@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import axios from 'axios'
 import PropertyCard from '../../Components/PropertyCard/PropertyCard'
 import Slider from '../../Components/Slider/Slider'
+import CityInformation from '../../Components/CityInformation/CityInformation'
 
 function CityDetails() {
 
@@ -55,68 +56,71 @@ function CityDetails() {
     return (
         <>
             <Slider title={title} message={message} />
-            <div className="property-filter">
-                <div className="filter-area">
-                    <label htmlFor="bedroom">Min Bedroom</label>
-                    <select name="bedroom_count" id="bedroom" onInput={updateFilter}>
-                        <option value="">Any</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
-                </div>
-                <div className="filter-area">
-                    <label htmlFor="bathrooom">Min Bathroom</label>
-                    <select name="bathroom_count" id="bathroom" onInput={updateFilter}>
-                        <option value="">Any</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <div className="filter-area">
-                    <label htmlFor="price">Max Price</label>
-                    <select name="rent" id="price" onInput={updateFilter}>
-                        <option value="">Any</option>
-                        <option value="1000">1000</option>
-                        <option value="1500">1500</option>
-                        <option value="2000">2000</option>
-                        <option value="2500">2500</option>
-                        <option value="3000">3000</option>
-                    </select>
-                </div>
-                <div className="filter-area">
-                    <label htmlFor="home">Home Type</label>
-                    <select name="property_type" id="home" onInput={updateFilter}>
-                        <option value="">Any</option>
-                        {
-                            propertTypes?.map((type, index) => {
-                                return <option key={index} value={type.name}>{type.name}</option>
-                            })
-                        }
-                    </select>
-                </div>
-            </div>
-            <div className='citydetails-container'>
-                <h1>{city?.property_count} homes in {city?.name}</h1>
-                {
-                    <div className="properties-container">
-                        {
-                            properties.length === 0 ?
-                                <h2>Sorry, no properties match you criteria.</h2>
-                                :
-                                properties?.map(property => {
-                                    return <PropertyCard key={property._id} property={property} />
-                                })
-                        }
+            <div className='city-details-container'>
+                <div className="property-filter">
+                    <div className="filter-area">
+                        <label htmlFor="bedroom">Min Bedroom</label>
+                        <select name="bedroom_count" id="bedroom" onInput={updateFilter}>
+                            <option value="">Any</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
                     </div>
-                }
+                    <div className="filter-area">
+                        <label htmlFor="bathrooom">Min Bathroom</label>
+                        <select name="bathroom_count" id="bathroom" onInput={updateFilter}>
+                            <option value="">Any</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div className="filter-area">
+                        <label htmlFor="price">Max Price</label>
+                        <select name="rent" id="price" onInput={updateFilter}>
+                            <option value="">Any</option>
+                            <option value="1000">1000</option>
+                            <option value="1500">1500</option>
+                            <option value="2000">2000</option>
+                            <option value="2500">2500</option>
+                            <option value="3000">3000</option>
+                        </select>
+                    </div>
+                    <div className="filter-area">
+                        <label htmlFor="home">Home Type</label>
+                        <select name="property_type" id="home" onInput={updateFilter}>
+                            <option value="">Any</option>
+                            {
+                                propertTypes?.map((type, index) => {
+                                    return <option key={index} value={type.name}>{type.name}</option>
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div className='citydetails-container'>
+                    <h1>{city?.property_count} homes in {city?.name}</h1>
+                    {
+                        <div className="properties-container">
+                            {
+                                properties.length === 0 ?
+                                    <h2>Sorry, no properties match you criteria.</h2>
+                                    :
+                                    properties?.map(property => {
+                                        return <PropertyCard key={property._id} property={property} />
+                                    })
+                            }
+                        </div>
+                    }
+                </div>
+                <CityInformation city={city} />
             </div>
         </>
     )

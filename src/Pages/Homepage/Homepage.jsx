@@ -25,39 +25,55 @@ function Homepage() {
     }, [])
 
     return (
-        <div className='homepage-container'>
+        <>
             <Slider title={title} message={message} />
-            <CitySearch cities={cities} />
-            <h2 className='city-cards-heading'>Student accommodations in our top cities</h2>
-            <div className='city-card-container'>
-                {
-                    cities?.map((city) => {
-                        return <CityCard key={city._id} name={city.name} count={city.property_count} imageURL={city.image_url} />
-                    })
-                }
-            </div>
-            <Link to={'/cities'}><button className='see-all-cities-btn'>See All Cities</button></Link>
-            <div className='compare-container'>
-                <h3>Compare all inclusive student homes.</h3>
-                <div className='comparisons'>
-                    <div className='compare'>
-                        <img src="../../Assets/earthSearch.png" alt="" />
-                        <h4>Search</h4>
-                        <p>Find your dream home in the perfect area near your university.</p>
-                    </div>
-                    <div className='compare'>
-                        <img src="../../Assets/tickCross.png" alt="" />
-                        <h4>Compare</h4>
-                        <p>Compare student accommodation to find the right home for you.</p>
-                    </div>
-                    <div className='compare'>
-                        <img src="../../Assets/paper.png" alt="" />
-                        <h4>Bills Included</h4>
-                        <p>Bills are included in all rent prices. No hidden fees.</p>
+            <div className='homepage-container'>
+                <CitySearch cities={cities} />
+                <h2 className='city-cards-heading'>Student accommodations in our top cities</h2>
+                <div className='city-card-container'>
+                    {
+                        cities?.map((city) => {
+                            return <CityCard key={city._id} name={city.name} count={city.property_count} imageURL={city.image_url} />
+                        })
+                    }
+                </div>
+                <Link to={'/cities'}><button className='see-all-cities-btn'>See All Cities</button></Link>
+                <div className='compare-container'>
+                    <h3>Compare all inclusive student homes.</h3>
+                    <div className='comparisons'>
+                        <div className='compare'>
+                            <img src="../../../public/earthSearch.png" alt="" />
+                            <h4>Search</h4>
+                            <p>Find your dream home in the perfect area near your university.</p>
+                        </div>
+                        <div className='compare'>
+                            <img src="../../../public/tickCross.png" alt="" />
+                            <h4>Compare</h4>
+                            <p>Compare student accommodation to find the right home for you.</p>
+                        </div>
+                        <div className='compare'>
+                            <img src="../../../public/paper.png" alt="" />
+                            <h4>Bills Included</h4>
+                            <p>Bills are included in all rent prices. No hidden fees.</p>
+                        </div>
                     </div>
                 </div>
-            </div>     
-        </div>
+                <div className='benefits-container'>
+                    <div className='section-container'>
+                        <h3>Best selection</h3>
+                        <p>Best selection of student accommodations. Never been easier to find a home that’s right for you.</p>
+                        <img className='section-image' src="../../../public/hand.png" alt="hand icon" />
+                    </div>
+                    <div className='section-container'>
+                        <h3>Your favorite</h3>
+                        <p>Shortlist your favourite properties and send enquiries in one click.</p>
+                        <img className='section-image' src="../../../public/heart.png" alt="hand icon" />
+                    </div>
+                    <button>Search & Compare</button>
+                    <img className='man-image' src="../../../public/man.png" alt="student on phone" />
+                </div>
+            </div>
+        </>
     )
 }
 
