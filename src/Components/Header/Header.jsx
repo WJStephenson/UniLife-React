@@ -53,17 +53,24 @@ function Header() {
           <Link to={'/shortlist'}><AiOutlineHeart />Shortlist</Link>
           <Link to={'#'} onClick={() => setIsContactOpen(true)}><AiOutlineMail />Contact Us</Link>
         </div>
-        <button className='mobile-nav-button' onClick={toggleNavMenu}><AiOutlineMenu /></button>
+        <button className='mobile-nav-button' onClick={() => {
+          toggleNavMenu()
+          setIsContactOpen(false)
+        }}><AiOutlineMenu /></button>
         <Modal
           isOpen={isNavOpen}
           onRequestClose={() => setIsNavOpen(false)}
           contentLabel="Mobile menu"
           className={'nav-modal'}
-        style={customNavStyles}
+          style={customNavStyles}
         >
           <div className='nav-modal'>
-              <Link to={'/shortlist'}><AiOutlineHeart />Shortlist</Link>
-              <Link to={'#'} onClick={() => setIsContactOpen(true)}><AiOutlineMail />Contact Us</Link>
+            <Link to={'/shortlist'} onClick={() => setIsNavOpen(false)}><AiOutlineHeart />Shortlist</Link>
+            <Link to={'#'} onClick={() => {
+              setIsContactOpen(true)
+              setIsNavOpen(false)
+            }
+            }><AiOutlineMail />Contact Us</Link>
           </div>
         </Modal>
       </nav>
