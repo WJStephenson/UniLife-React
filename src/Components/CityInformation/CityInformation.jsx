@@ -12,7 +12,7 @@ function CityInformation({ city }) {
                 <p>{city?.student_life}</p>
                 <p>{city?.universities}</p>
             </div>
-            <img src="/public/students.png" alt="Happy Students" />
+            <img src="/images/students.png" alt="Happy Students" />
         </div>
     )
 }
