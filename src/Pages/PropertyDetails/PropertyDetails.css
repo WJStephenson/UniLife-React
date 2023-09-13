@@ -209,6 +209,7 @@
     }
 
     .property-details-container {
-        width: 90vw
+        width: 90vw;
+        margin-bottom: 50px;
     }
 }
